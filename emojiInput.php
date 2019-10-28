@@ -21,9 +21,10 @@ session_start();
   <Title>Emoji Input</title>
     <link rel="stylesheet" type="text/css" href="Rstyle.css">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body class="bg">
-  <Header>
+  <Header><br>
     <h1>Graphical Login Interface</</h1>
   </header>
   <form action="emojiInput.php"method="post">
