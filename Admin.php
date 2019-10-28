@@ -17,7 +17,7 @@ if (isset($_SESSION['authenticate'])) {?>
     <div class="un">
       <p>
           <label for="username" class="uname" data-icon="u">Enter username for user removal:</label><br>
-          <input class="txtbx" id="username" name="username" required="required" placeholder="Fill in random letters for PassPhrase reset" />
+          <input class="txtbx" id="username" name="username" required="required" placeholder="Enter username of the user to be removed" />
       </p>
       <p>
           <input type="checkbox" name="update" value="dlt"> Remove User<br>
