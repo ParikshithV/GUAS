@@ -1,0 +1,160 @@
+html
+{
+   font-size: 1em !important;
+   color: #000 !important;
+   font-family: Arial !important;
+}
+
+.bg{
+  margin:0;
+  padding:0;
+  /*background-image: url(1.jpg);*/
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body{
+  background-color: white;
+}
+header{
+  padding-left: 20%;
+}
+form{
+  padding-left: 20%;
+  line-height: 3em;
+}
+.container{
+  background-color: rgb(232, 232, 232, 0.3);
+  width:500px;
+  margin-right: 50px;
+  border: 2px teal solid;
+  padding: 10px;
+  border-radius: 20px;
+
+}
+.un{
+  padding-bottom: 20px;
+  padding-left: 1%;
+}
+.pass{
+  line-height: 150%;
+  padding-top: 5px;
+  padding-left: 10%;
+  padding-bottom: 30px;
+}
+
+.txtbx {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 0px;
+  display: inline-block;
+  border-bottom: 2px solid #bababa;
+  border-right: 2px solid #bababa;
+  border-top: 0px;
+  border-left: 0px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+.msgbx {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 0px;
+  display: inline-block;
+  border-bottom: 2px solid #bababa;
+  border-right: 2px solid #bababa;
+  border-top: 0px;
+  border-left: 0px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+.button{
+  background-color: #607abd;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px;
+}
+.button2{
+  background-color: #607abd;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.text{
+  padding-left: 30%;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#leftbox {
+  float: left;
+  width:100px;
+  padding-right: 20px;
+  padding-left: 10px;
+  border: 2px;
+  border-color: black;
+  border: 2px teal solid;
+  border-radius: 20px;
+}
+#middlebox{
+  float: left;
+  width:100px;
+  padding-right: 20px;
+  padding-left: 10px;
+  border: 2px teal solid;
+  border-radius: 20px;
+}
+#rightbox{
+  float: left;
+  width:100px;
+  padding-right: 20px;
+  padding-left: 10px;
+  border: 2px teal solid;
+  border-radius: 20px;
+}
+
+#bottomerror{
+  position:relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #grey;
+  padding: 10px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 5px;
+  font-size: 30px;
+  text-align: center;
+}
