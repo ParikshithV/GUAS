@@ -2,7 +2,6 @@
 <head>
   <Title>Registration Page</title>
     <link rel="stylesheet" type="text/css" href="Rstyle.css">
-    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 <body class="bg">
@@ -50,8 +49,8 @@
         $emailid = mysqli_real_escape_string($db, $_POST['emailid']);
         $sql_u = "SELECT * FROM users WHERE username='$username'";
         $res_u = mysqli_query($db, $sql_u);
-        $userdb = "INSERT INTO users (username, emailid, passphrase)
-          			  VALUES('$username', '$emailid', '$passphrase')";
+        $userdb = "INSERT INTO users (username, emailid, passphrase, login)
+          			  VALUES('$username', '$emailid', '$passphrase', '3')";
 
         $createudb = "CREATE TABLE IF NOT EXISTS `msgpass`.`$username` (`message` VARCHAR(100), (`msg_from` VARCHAR(100)));";
 
@@ -70,7 +69,7 @@
           else{
             $name_error = "Username Available";
             $createdb = "CREATE TABLE IF NOT EXISTS `guasupp`.`users` (`username` VARCHAR(100) NOT NULL,`emailid` VARCHAR(100) NOT NULL,`passphrase` VARCHAR(100) NOT NULL,
-                          `emojichoice1` VARCHAR(100), `emojichoice2` VARCHAR(100), `emojichoice3` VARCHAR(100), PRIMARY KEY (`username`),UNIQUE INDEX `username_UNIQUE` (`username` ASC));";
+                          `emojichoice1` VARCHAR(100), `emojichoice2` VARCHAR(100), `emojichoice3` VARCHAR(100), `login` INT(10), PRIMARY KEY (`username`),UNIQUE INDEX `username_UNIQUE` (`username` ASC));";
             mysqli_query($db, $createdb);
 
             $db = mysqli_connect("localhost", "root", "", "guasupp");
@@ -116,8 +115,8 @@
               $_SESSION["word0"] = "$word0";
               $_SESSION["word1"] = "$word1";
               $_SESSION["word2"] = "$word2";
-              mysqli_query($db, $userdb);
               mysqli_query($db, $createudb);
+              mysqli_query($db, $userdb);
               header("Location: emojiInput.php?");
               //exit();
             }

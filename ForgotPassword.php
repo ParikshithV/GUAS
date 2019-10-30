@@ -50,7 +50,7 @@
         $sql_u = "SELECT * FROM users WHERE username='$username'";
         $res_u = mysqli_query($db, $sql_u);
         $userdb = "UPDATE users
-                    SET passphrase = '$passphrase' WHERE username = '$username';";
+                    SET passphrase = '$passphrase', login = '3' WHERE username = '$username';";
         $email = mysqli_query($db,"select emailid from users where username = '$username'");
         $emailid = mysqli_fetch_row($email);
         $emaildb=$emailid[0];

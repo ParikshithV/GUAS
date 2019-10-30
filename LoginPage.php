@@ -28,24 +28,44 @@ if(isset($_POST['refnum'])){
   $db = mysqli_connect("localhost", "root", "", "guasupp");
   $refin= mysqli_real_escape_string($db, $_POST['refnum']);
   $reff = $_SESSION["enc"];
-if ($refin==$reff){
   $uname=$_SESSION['uname'];
-  $email = mysqli_query($db,"select emailid from users where username = '$uname'");
-  $emailid = mysqli_fetch_row($email);
-  $statement="Your Email ID is $emailid[0] and ";
-  $_SESSION['res']=$statement;
+  $login_search = "SELECT login FROM users WHERE username = '$uname'";
+  $loginattempt = mysqli_query($db, $login_search);
+  $logno = mysqli_fetch_array($loginattempt);
+  $lno = $logno[0];
+if ($refin==$reff && $lno > 0){
+  $uname=$_SESSION['uname'];
   $_SESSION['authenticate']="session_id";
   if ($uname == "Admin") {
     header("location:Admin.php");
   }
-  else {
+  elseif ($lno > 0){
+    $uname=$_SESSION['uname'];
+    $login = "UPDATE users
+                SET login = '3'
+                WHERE username = '$username';";
+    mysqli_query($db, $login);
     header("location:UserPage.php");
   }
 }
 else {
+  if ($lno< 0) {
+    $lno = 0;
+  }
+  echo "No. of login attempts left: $lno";?><br><?php
+
+  $login = "UPDATE users
+              SET login = '$lno'
+              WHERE username = '$uname';";
+  mysqli_query($db, $login);
   echo"Login Fail! Incorrect emoji reference numbers entered.";
+  if ($lno < 1) {
+    echo '<script> alert("Too many invalid login attempts, Contact admin"); </script>';
+  }
+  //unset($_SESSION['uname']);
 }
 }
+
 
   if(isset($_POST['rusername'])){
     $username=($_POST['rusername']);
@@ -64,6 +84,20 @@ else {
         $randemo = mysqli_query($db,"select emoji from emojidb where emoji_id=$rand[$i]");
         $emojisearch = mysqli_fetch_array($randemo);
         $emoji[] = $emojisearch['emoji'];
+      }
+
+      $uname=$_SESSION['uname'];
+      $login_search = "SELECT login FROM users WHERE username = '$uname'";
+      $loginattempt = mysqli_query($db, $login_search);
+      $logno = mysqli_fetch_array($loginattempt);
+      $lno = $logno[0];
+      $lno--;
+      $login = "UPDATE users
+                  SET login = '$lno'
+                  WHERE username = '$uname';";
+      mysqli_query($db, $login);
+      if ($lno < 1){
+        echo '<script> alert("Please contact admin to login"); </script>';
       }
 
       $emosc1 = mysqli_query($db,"select emojichoice1 from users where username = '$username'");
@@ -93,6 +127,11 @@ else {
       $e=1;
       $db = mysqli_connect("localhost", "root", "", "guasupp");
       $rusername = mysqli_real_escape_string($db, $_POST['rusername']);
+      $login_search = "SELECT login FROM users WHERE username = '$uname'";
+      $loginattempt = mysqli_query($db, $login_search);
+      $logno = mysqli_fetch_array($loginattempt);
+      $lno = $logno[0];
+      $lno--;
       echo "Username: $rusername";
       ?><br><label for="passwordsignup" class="youpasswd" data-icon="p">Emoji Grid : </label><br>
       <div class="grid-container">
