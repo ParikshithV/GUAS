@@ -20,19 +20,26 @@ body{
   background-color: white;
 }
 header{
-  padding-left: 20%;
+  padding-left: 0.5%;
+  background-color: white;
 }
 form{
   padding-left: 20%;
   line-height: 3em;
 }
+h2{
+  color: rgb(242, 242, 242, 0.80);
+}
 .container{
-  background-color: rgb(232, 232, 232, 0.3);
-  width:500px;
+  float: inherit;
+  background-color: white;
+  width:40%;
+  margin-top: 15%;
   margin-right: 50px;
-  border: 2px teal solid;
+  border: none;
   padding: 10px;
-  border-radius: 20px;
+  padding-right: 15px;
+  border-radius: 8px;
 
 }
 .un{
@@ -49,15 +56,12 @@ form{
 .txtbx {
   width: 80%;
   padding: 12px 20px;
-  margin: 0px;
+  margin-bottom: 2px;
   display: inline-block;
-  border-bottom: 2px solid #bababa;
-  border-right: 2px solid #bababa;
-  border-top: 0px;
-  border-left: 0px;
+  border: NONE;
   box-sizing: border-box;
-  border-radius: 20px;
-  background-color: #f2f2f2;
+  border-radius: 10px;
+  background-color: #e6e6e6;
   outline: none;
 }
 
@@ -66,13 +70,10 @@ form{
   padding: 12px 20px;
   margin: 0px;
   display: inline-block;
-  border-bottom: 2px solid #bababa;
-  border-right: 2px solid #bababa;
-  border-top: 0px;
-  border-left: 0px;
+  border: NONE;
   box-sizing: border-box;
-  border-radius: 20px;
-  background-color: #f2f2f2;
+  border-radius: 10px;
+  background-color: #e6e6e6;
   outline: none;
 }
 
@@ -80,21 +81,21 @@ form{
   background-color: #3277a8;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 2px;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 .button2{
   background-color: #3277a8;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 2px;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .text{

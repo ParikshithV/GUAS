@@ -4,18 +4,13 @@
     <link rel="stylesheet" type="text/css" href="Rstyle.css">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="bg">
-  <Header>
-    <br>
-    <h1 style="margin: 0">Graphical Login Interface</</h1>
-  </header>
   <form action="LoginPage.php"method="post">
-    <h2 style="margin-left: 50">>Registration Page</h2>
   <div class="container">
   <div class="un">
-    <h1 style="margin: 1"><u> Login: </u></h1>
-
+    <h1 style="margin: 1"> Login </h1>
 <?php
 session_start();
 
@@ -33,34 +28,34 @@ if(isset($_POST['refnum'])){
   $loginattempt = mysqli_query($db, $login_search);
   $logno = mysqli_fetch_array($loginattempt);
   $lno = $logno[0];
-if ($refin==$reff && $lno > 0){
+if ($refin==$reff && $lno > -2){
   $uname=$_SESSION['uname'];
   $_SESSION['authenticate']="session_id";
   if ($uname == "Admin") {
     header("location:Admin.php");
   }
-  elseif ($lno > 0){
+  elseif ($lno > -2){
     $uname=$_SESSION['uname'];
     $login = "UPDATE users
                 SET login = '3'
-                WHERE username = '$username';";
+                WHERE username = '$uname';";
     mysqli_query($db, $login);
     header("location:UserPage.php");
   }
 }
 else {
-  if ($lno< 0) {
-    $lno = 0;
+  $lnoo = $lno;
+  if ($lno < 1) {
+    $lnoo = 0;
   }
-  echo "No. of login attempts left: $lno";?><br><?php
-
+  echo "No. of login attempts left: $lnoo";?><br><?php
   $login = "UPDATE users
               SET login = '$lno'
               WHERE username = '$uname';";
   mysqli_query($db, $login);
-  echo"Login Fail! Incorrect emoji reference numbers entered.";
-  if ($lno < 1) {
-    echo '<script> alert("Too many invalid login attempts, Contact admin"); </script>';
+  echo '<script>swal("Login Failed!", "Incorrect reference numbers entered.", "warning");</script>';
+  if ($lno < -1) {
+    echo '<script>swal("", "Too many invalid attempts. Contact admin", "warning");</script>';
   }
   //unset($_SESSION['uname']);
 }
@@ -96,8 +91,8 @@ else {
                   SET login = '$lno'
                   WHERE username = '$uname';";
       mysqli_query($db, $login);
-      if ($lno < 1){
-        echo '<script> alert("Please contact admin to login"); </script>';
+      if ($lno < -1){
+        echo '<script>swal("", "Please contact admin to login", "warning");</script>';
       }
 
       $emosc1 = mysqli_query($db,"select emojichoice1 from users where username = '$username'");
@@ -150,7 +145,7 @@ else {
           <label for="username" class="uname" data-icon="u">Your username:</label><br>
           <input class="txtbx" id="rusername" name="rusername" required="required" placeholder="mysuperusername690" />
       </p><?php
-      echo "User not found!";
+      echo '<script>swal("", "Username not found", "error");</script>';
     }
   }
   else {

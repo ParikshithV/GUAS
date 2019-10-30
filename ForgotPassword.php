@@ -4,14 +4,13 @@
     <link rel="stylesheet" type="text/css" href="Rstyle.css">
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="bg">
   <Header>
-    <br>
-    <h1 style="margin: 0">Graphical Login Interface</</h1>
+    <h1> PassPhrase Reset Page</h1>
   </header>
   <form action="ForgotPassword.php"method="post">
-    <h2 style="margin-left: 50">>PassPhrase Reset Page</h2>
   <div class="container">
   <div class="un">
     <p>
@@ -59,16 +58,14 @@
         $worderror="";
 
           if (mysqli_num_rows($res_u) < 1) {
-            $une = "Username not found.";
-            ?><script> alert("User not found!"); </script><?php
+            echo '<script>swal("", "Username not found", "error");</script>';
             //echo " $une";
           }
           elseif ($emaildb!=$emailin) {
-            ?><script> alert("Incorrect Email address!"); </script><?php
+            echo '<script>swal("", "Incorrect email address", "error");</script>';
           }
           elseif ($word0==$word1||$word0==$word2||$word1==$word2){
-            $worderror="Two or more similar words found in the passphrase. please enter unique words";
-            echo $worderror;
+            echo '<script>swal("Error", "Two or more similar words found in passphrase. please enter unique words.", "info");</script>';
           }
           else{
               $db = mysqli_connect("localhost", "root", "", "guasupp");
@@ -107,6 +104,11 @@
                 echo "$emojierror3";
                 echo "<br>";
               }
+
+              if (!empty($emojierror1||$emojierror2||$emojierror3)) {
+                echo '<script>swal("Error", "Please check alert messages above the word suggestions", "info");</script>';
+              }
+
 
             if(empty($_POST[$une])&&(empty($_POST[$worderror]))&&(empty($emojierror1))&&(empty($emojierror2))&&(empty($emojierror3))) {
               //header('Location:regepage.php');

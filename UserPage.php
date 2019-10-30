@@ -6,10 +6,11 @@ if (isset($_SESSION['authenticate'])) {?>
     <Title>Hello <?php echo $_SESSION['uname']; ?></title>
       <link rel="stylesheet" type="text/css" href="Rstyle.css">
       <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
-  <body>
-    <Header><br><br>
-      <h1>Encrypted message passing</</h1>
+  <body class="bg">
+    <Header>
+      <h1>Encrypted message passing</h1>
     </header>
     <form action="UserPage.php"method="post">
     <div class="container">
@@ -22,8 +23,12 @@ if (isset($_SESSION['authenticate'])) {?>
             $res_u = mysqli_query($db1, $sql_u);
             if (isset($_POST['clr_data'])) {
               $clrudb = "DROP TABLE `msgpass`.`$username`;";
-              mysqli_query($db1, $clrudb);
-              header("location:Confirm.php");
+              mysqli_query($db1, $clrudb);?>
+              <script>swal("Messages deleted!", "All messages deleted.", "success", {buttons: false, timer: 2100,});</script>
+              <script>setTimeout(function(){
+                window.location.href='Confirm.php';
+              }, 2000);
+              </script><?php
             }
           //session_start();
           $fromuser = $_SESSION['uname'];
@@ -54,7 +59,7 @@ if (isset($_SESSION['authenticate'])) {?>
             else {
               echo ". No messages recived";
             }
-            ?><br>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - <br>
+            ?><br>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - <br>
             <label for="username" class="username" data-icon="e" >Select user to send message:  </label>
             <select name="touser"><?php
               $sql_search = "SELECT username FROM users;";
@@ -92,8 +97,12 @@ if (isset($_SESSION['authenticate'])) {?>
             $tousermsg = $_SESSION['touser'];
             $msgdb = "INSERT INTO $tousermsg (message, msg_from)
               			  VALUES('$message', '$fromuser');";
-            mysqli_query($db1, $msgdb);
-            header("location:Confirm.php");
+            mysqli_query($db1, $msgdb);?>
+            <script>swal("Message sent!", "Message encrypted and sent.", "success", {buttons: false, timer: 2000,});</script>
+            <script>setTimeout(function(){
+              window.location.href='Confirm.php';
+            }, 2500);
+            </script><?php
           }
           ?>
       </p>

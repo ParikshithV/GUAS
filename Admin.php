@@ -7,10 +7,9 @@ if (isset($_SESSION['authenticate'])) {?>
       <link rel="stylesheet" type="text/css" href="Rstyle.css">
       <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg">
     <Header>
-      <h1>Graphical Login Interface</</h1>
-      <h2>Admin Page</h2>
+      <h1>Admin Page</h1>
     </header>
     <form action="Admin.php"method="post">
     <div class="container">

@@ -3,17 +3,13 @@
   <Title>Registration Page</title>
     <link rel="stylesheet" type="text/css" href="Rstyle.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body class="bg">
-  <Header>
-    <br>
-    <h1 style="margin: 0">Graphical Login Interface</</h1>
-  </header>
   <form action="RegForm.php"method="post">
-    <h2 style="margin-left: 50">>Registration Page</h2>
   <div class="container">
   <div class="un">
-    <h1 style="margin: 1"><u> Sign up </u></h1>
+    <h1 style="margin: 1"> Sign up </h1>
     <p>
         <label for="username" class="uname" data-icon="u">Your username:</label><br>
         <input class="txtbx" id="username" name="username" required="required" placeholder="mysuperusername690" />
@@ -59,11 +55,12 @@
 
           if (mysqli_num_rows($res_u) > 0) {
             $une = "Username not available! Please enter different username.";
-            ?><script> alert("Username not available! Please enter different username."); </script><?php
+            echo '<script>swal("", "Username not available", "error");</script>';
             //echo $une;
           }
           elseif ($word0==$word1||$word0==$word2||$word1==$word2){
-            $worderror="Two or more similar words found in the passphrase. please enter unique words";
+            echo '<script>swal("Error", "Two or more similar words found in the passphrase. please enter unique words", "info");</script>';
+            //$worderror="Two or more similar words found in the passphrase. please enter unique words";
             echo $worderror;
           }
           else{
@@ -107,6 +104,10 @@
                 $emojierror3="No emoji choices for $word2. Please enter a different word";
                 echo "$emojierror3";
                 echo "<br>";
+              }
+
+              if (!empty($emojierror1||$emojierror2||$emojierror3)) {
+                echo '<script>swal("Error", "Please check alert messages above the word suggestions", "info");</script>';
               }
 
             if(empty($_POST[$une])&&(empty($_POST[$worderror]))&&(empty($emojierror1))&&(empty($emojierror2))&&(empty($emojierror3))) {
