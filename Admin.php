@@ -6,6 +6,7 @@ if (isset($_SESSION['authenticate'])) {?>
     <Title>Admin Page</title>
       <link rel="stylesheet" type="text/css" href="Rstyle.css">
       <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body class="bg">
     <Header>
@@ -44,7 +45,10 @@ if (isset($_SESSION['authenticate'])) {?>
       if (mysqli_num_rows($res_u) > 0) {
         $sql_dlt="DELETE FROM `users` WHERE username = '$username'";
         mysqli_query($db, $sql_dlt);
-        ?><script> alert("User Removed!"); </script><?php
+        echo '<script>swal("User removed!", "", "success");</script>';
+      }
+      else {
+        echo '<script>swal("Error", "User not found", "warning");</script>';
       }
     }
   }

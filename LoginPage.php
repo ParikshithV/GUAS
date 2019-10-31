@@ -96,11 +96,20 @@ else {
       }
 
       $emosc1 = mysqli_query($db,"select emojichoice1 from users where username = '$username'");
-      $emsearch1 = mysqli_fetch_row($emosc1);
+      $emsearch1_enc = mysqli_fetch_row($emosc1);
+      $emsearch1_dec = $emsearch1_enc[0];
+      $emsearch1 = base64_decode($emsearch1_dec);
+
       $emosc2 = mysqli_query($db,"select emojichoice2 from users where username = '$username'");
-      $emsearch2 = mysqli_fetch_row($emosc2);
+      $emsearch2_enc = mysqli_fetch_row($emosc2);
+      $emsearch2_dec = $emsearch2_enc[0];
+      $emsearch2 = base64_decode($emsearch2_dec);
+
       $emosc3 = mysqli_query($db,"select emojichoice3 from users where username = '$username'");
-      $emsearch3 = mysqli_fetch_row($emosc3);
+      $emsearch3_enc = mysqli_fetch_row($emosc3);
+      $emsearch3_dec = $emsearch3_enc[0];
+      $emsearch3 = base64_decode($emsearch3_dec);
+
       $numbere = range(0, 11);
       shuffle($numbere);
       $rande = array_slice($numbere, 0, 11);
@@ -109,9 +118,10 @@ else {
       $e3=$rande[8];
 
       //printf($rande[3]);
-      $emoji[$e1] = "$emsearch1[0]";
-      $emoji[$e2] = "$emsearch2[0]";
-      $emoji[$e3] = "$emsearch3[0]";
+      echo "$emsearch1";
+      $emoji[$e1] = "$emsearch1";
+      $emoji[$e2] = "$emsearch2";
+      $emoji[$e3] = "$emsearch3";
       $e1++;
       $e2++;
       $e3++;

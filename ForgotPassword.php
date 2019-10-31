@@ -48,11 +48,13 @@
         $emailin = mysqli_real_escape_string($db, $_POST['emailid']);
         $sql_u = "SELECT * FROM users WHERE username='$username'";
         $res_u = mysqli_query($db, $sql_u);
+        $passphrase_enc = base64_encode( $passphrase );
         $userdb = "UPDATE users
-                    SET passphrase = '$passphrase', login = '3' WHERE username = '$username';";
+                    SET passphrase = '$passphrase_enc', login = '3' WHERE username = '$username';";
         $email = mysqli_query($db,"select emailid from users where username = '$username'");
-        $emailid = mysqli_fetch_row($email);
-        $emaildb=$emailid[0];
+        $emailid_enc = mysqli_fetch_row($email);
+        $emailid = base64_decode($emailid_enc[0]);
+        $emaildb=$emailid;
 
         $une = "";
         $worderror="";

@@ -40,13 +40,15 @@
         $word1 = trim($word1);
         $word2 = trim($word2);
         $passphrase = $word0." ".$word1." ".$word2;
+        $passphrase_enc = base64_encode( $passphrase );
 
         $username = mysqli_real_escape_string($db, $_POST['username']);
         $emailid = mysqli_real_escape_string($db, $_POST['emailid']);
+        $emailid_enc = base64_encode( $emailid );
         $sql_u = "SELECT * FROM users WHERE username='$username'";
         $res_u = mysqli_query($db, $sql_u);
         $userdb = "INSERT INTO users (username, emailid, passphrase, login)
-          			  VALUES('$username', '$emailid', '$passphrase', '3')";
+          			  VALUES('$username', '$emailid_enc', '$passphrase_enc', '3')";
 
         $createudb = "CREATE TABLE IF NOT EXISTS `msgpass`.`$username` (`message` VARCHAR(100), (`msg_from` VARCHAR(100)));";
 

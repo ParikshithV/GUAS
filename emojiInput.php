@@ -125,8 +125,11 @@ if (isset($_SESSION['username'])) {
         }
         else {
           $username = $_SESSION["username"];
+          $emojichoice1_enc = base64_encode( $emojichoice1 );
+          $emojichoice2_enc = base64_encode( $emojichoice2 );
+          $emojichoice3_enc = base64_encode( $emojichoice3 );
           $userdb = "UPDATE users
-                      SET emojichoice1 = '$emojichoice1', emojichoice2 = '$emojichoice2', emojichoice3 = '$emojichoice3'
+                      SET emojichoice1 = '$emojichoice1_enc', emojichoice2 = '$emojichoice2_enc', emojichoice3 = '$emojichoice3_enc'
                       WHERE username = '$username';";
           mysqli_query($db, $userdb);
           session_destroy();?>
