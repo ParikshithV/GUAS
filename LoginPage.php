@@ -30,7 +30,7 @@ if(isset($_POST['refnum'])){
   $lno = $logno[0];
 if ($refin==$reff && $lno > -2){
   $uname=$_SESSION['uname'];
-  $_SESSION['authenticate']="session_id";
+  $_SESSION['authenticate']=session_id();
   if ($uname == "Admin") {
     header("location:Admin.php");
   }
@@ -118,7 +118,6 @@ else {
       $e3=$rande[8];
 
       //printf($rande[3]);
-      echo "$emsearch1";
       $emoji[$e1] = "$emsearch1";
       $emoji[$e2] = "$emsearch2";
       $emoji[$e3] = "$emsearch3";

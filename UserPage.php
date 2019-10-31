@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION['authenticate'])) {?>
+if ($_SESSION['authenticate'] == session_id()) {?>
   <html>
   <head>
     <Title>Hello <?php echo $_SESSION['uname']; ?></title>
@@ -32,6 +32,7 @@ if (isset($_SESSION['authenticate'])) {?>
             }
           //session_start();
           $fromuser = $_SESSION['uname'];
+          $fromuser_enc = base64_encode( $fromuser );
           $db = mysqli_connect("localhost", "root", "", "guasupp");
 
           if(!isset($_POST['touser'])){
@@ -52,8 +53,11 @@ if (isset($_SESSION['authenticate'])) {?>
                 $row = mysqli_fetch_array($search_msg_sql);
                 $rowf = mysqli_fetch_array($search_msgfrm_sql);
                 $msg[] = $row['message'];
+                $msge = $msg[$i];
+                $msg_dec[$i] = base64_decode( $msge );
                 $msg_from[] = $rowf['msg_from'];?><br><?php
-                printf("Message from $msg_from[$i]: $msg[$i]");
+                $msg_from_enc[$i] = base64_decode( $msg_from[$i] );
+                printf("Message from $msg_from_enc[$i]: $msg_dec[$i]");
               }
             }
             else {
@@ -95,8 +99,9 @@ if (isset($_SESSION['authenticate'])) {?>
             $db1 = mysqli_connect("localhost", "root", "", "msgpass");
             $message = $_POST['message'];
             $tousermsg = $_SESSION['touser'];
+            $message_enc = base64_encode( $message );
             $msgdb = "INSERT INTO $tousermsg (message, msg_from)
-              			  VALUES('$message', '$fromuser');";
+              			  VALUES('$message_enc', '$fromuser_enc');";
             mysqli_query($db1, $msgdb);?>
             <script>swal("Message sent!", "Message encrypted and sent.", "success", {buttons: false, timer: 2000,});</script>
             <script>setTimeout(function(){
