@@ -13,7 +13,7 @@ if (isset($_SESSION['authenticate'])) {?>
       <h1>Encrypted message passing</h1>
     </header>
     <form action="UserPage.php"method="post">
-    <div class="container">
+    <div class="containerr">
     <div class="un">
       <p>
           <?php

@@ -12,7 +12,7 @@ if (isset($_SESSION['authenticate'])) {?>
       <h1>Admin Page</h1>
     </header>
     <form action="Admin.php"method="post">
-    <div class="container">
+    <div class="containerr">
     <div class="un">
       <p>
           <label for="username" class="uname" data-icon="u">Enter username for user removal:</label><br>

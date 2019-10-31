@@ -7,7 +7,7 @@
 </head>
 <body class="bg">
   <form action="RegForm.php"method="post">
-  <div class="container">
+  <div class="containerr">
   <div class="un">
     <h1 style="margin: 1"> Sign up </h1>
     <p>

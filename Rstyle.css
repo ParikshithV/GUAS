@@ -42,6 +42,18 @@ h2{
   border-radius: 8px;
 
 }
+.containerr{
+  float: inherit;
+  background-color: white;
+  width:40%;
+  margin-top: 10%;
+  margin-right: 50px;
+  border: none;
+  padding: 10px;
+  padding-right: 15px;
+  border-radius: 8px;
+
+}
 .un{
   padding-bottom: 20px;
   padding-left: 1%;
