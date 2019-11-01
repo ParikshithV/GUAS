@@ -4,9 +4,9 @@ if ($_SESSION['authenticate'] == session_id()) {?>
   <html>
   <head>
     <Title>Hello <?php echo $_SESSION['uname']; ?></title>
-      <link rel="stylesheet" type="text/css" href="Rstyle.css">
-      <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Rstyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body class="bg">
     <Header>
