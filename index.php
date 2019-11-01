@@ -37,7 +37,7 @@
       <p style="text-align: left">
         In this page after the username is entered and checked if it exists in the database, the user is shown
         a mixed set of random emojis along with the emojis choosen during registration. The user needs to enter
-        the referrence numbers displayed next to the user choosen emojis in the right order. After the entered
+        the reference numbers displayed next to the user choosen emojis in the right order. After the entered
         number is checked, the user is given access to the message passing interface.
       </p>
       <button class="redb" onclick="window.location.href = 'LoginPage.php';">Go to Login Page</button>

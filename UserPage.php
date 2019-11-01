@@ -61,7 +61,7 @@ if ($_SESSION['authenticate'] == session_id()) {?>
               }
             }
             else {
-              echo ". No messages recived";
+              echo ". No messages received";
             }
             ?><br>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - <br>
             <label for="username" class="username" data-icon="e" >Select user to send message:  </label>
