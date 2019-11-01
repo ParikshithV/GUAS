@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 if (isset($_SESSION['username'])) {
     function username(){
@@ -141,8 +142,8 @@ if (isset($_SESSION['username'])) {
           <input class="button2" type="button" onclick="window.location.href = 'loginpage.php';" value="Login"/><?php
         }
       }
-      else {
-        echo '<script>swal("Error", "Emojis not selected", "error");</script>';
+      else{
+        echo '<script>swal("info", "Select reference emojis for all three words", "info");</script>';
       }
       ?>
     </div>
