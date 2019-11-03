@@ -144,7 +144,7 @@ else {
       endforeach; ?>
       </div>
       <label for="username" class="uname" data-icon="u">Enter emoji reference numbers without spaces:</label><br>
-        <input class="txtbx" id="refnum" name="refnum" required="required" placeholder="Numbers under the emojis. Eg.: 548" />
+        <input class="txtbx" id="refnum" name="refnum" required="required" autofocus="autofocus" placeholder="Numbers under the emojis. Eg.: 548" />
 
 
   <?php
@@ -152,7 +152,7 @@ else {
     else {
       ?><p>
           <label for="username" class="uname" data-icon="u">Your username:</label><br>
-          <input class="txtbx" id="rusername" name="rusername" required="required" placeholder="mysuperusername690" />
+          <input class="txtbx" id="rusername" name="rusername" required="required" autofocus="autofocus" placeholder="mysuperusername690" />
       </p><?php
       echo '<script>swal("", "Username not found", "error");</script>';
     }
@@ -160,7 +160,7 @@ else {
   else {
     ?><p>
         <label for="username" class="uname" data-icon="u">Your username:</label><br>
-        <input class="txtbx" id="rusername" name="rusername" required="required" placeholder="mysuperusername690" />
+        <input class="txtbx" id="rusername" name="rusername" autofocus="autofocus" required="required" placeholder="mysuperusername690" />
     </p><?php
   }
 ?>

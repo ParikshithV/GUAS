@@ -75,8 +75,7 @@ if ($_SESSION['authenticate'] == session_id()) {?>
                 $row = mysqli_fetch_array($search_res_sql);
                 $wr[$i] = $row['username'];?>
                 <option value="<?php printf("$wr[$i]"); ?>"><?php printf("$wr[$i]"); ?></option>
-                <?php printf("$wr[$i]"); ?>
-                <?php
+                <?php printf("$wr[$i]");
               }?>
             </select><br>
             <input type="checkbox" name="clr_data" value="clr"> Clear all messages<br>
@@ -92,7 +91,7 @@ if ($_SESSION['authenticate'] == session_id()) {?>
             ?>
             <p>
               <label for="Message" class="uname" data-icon="u">Enter message :</label><br>
-              <input class="msgbx" name="message" required="required" placeholder="Enter message to be sent" />
+              <input class="msgbx" name="message" required="required" autofocus="autofocus" placeholder="Enter message to be sent" />
             </p><?php
           }
           if (isset($_POST['message'])) {

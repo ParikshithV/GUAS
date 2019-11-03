@@ -26,6 +26,21 @@ if (isset($_SESSION['authenticate'])) {?>
       <input class="button" type="submit" vlaue="submit" >
       <input class="button2" type="button" onclick="window.location.href = 'ForgotPassword.php';" value="Reset PassPhrase"/>
       <input class="button2" type="button" onclick="window.location.href = 'LoginPage.php';" value="Logout"/>
+      <?php
+      $db = mysqli_connect("localhost", "root", "", "guasupp");
+      $sql_search = "SELECT username FROM users;";
+      $search_res_sql=mysqli_query($db, $sql_search);
+      $rowcount=mysqli_num_rows($search_res_sql);
+      ?><br><br><u>Registered Users:</u><br>
+      <?php
+      $j=1;
+        for ($i=0; $i < $rowcount; $i++) {
+          $rowtwo = mysqli_fetch_array($search_res_sql);
+          printf("$j: $rowtwo[0]");?><br>
+          <?php $j++;
+      }
+      ?>
+
       </div>
     </form>
   </body>

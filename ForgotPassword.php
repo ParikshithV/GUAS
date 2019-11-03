@@ -15,7 +15,7 @@
   <div class="un">
     <p>
         <label for="username" class="uname" data-icon="u">Your username:</label><br>
-        <input class="txtbx" id="username" name="username" required="required" placeholder="mysuperusername690" />
+        <input class="txtbx" id="username" name="username" required="required" autofocus="autofocus" placeholder="mysuperusername690" />
     </p>
     <p>
         <label for="emailsignup" class="youmail" data-icon="e" >Your email:</label><br>

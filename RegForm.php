@@ -12,7 +12,7 @@
     <h1 style="margin: 1"> Sign up </h1>
     <p>
         <label for="username" class="uname" data-icon="u">Your username:</label><br>
-        <input class="txtbx" id="username" name="username" required="required" placeholder="mysuperusername690" />
+        <input class="txtbx" id="username" name="username" autofocus="autofocus" required="required" placeholder="mysuperusername690" />
     </p>
     <p>
         <label for="emailsignup" class="youmail" data-icon="e" >Your email:</label><br>
