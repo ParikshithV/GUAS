@@ -131,7 +131,7 @@
     ?>
     <p style="font-size:15px;line-height:2;">
       Word Suggestions:<br>Airplane, Camera, Star, Sun, Moon, Book, Heart, Boy, Girl, Kiss, Pizza,
-       Bus, Computer, Doctor, Farmer, Scientist, Fire, Rabbit, Monkey, Dog...
+       Bus, Computer, Doctor, Farmer, Scientist, Fire, Radio, baby,  Rabbit, Monkey, Dog...
     </p>
 	    <input class="button" type="submit" vlaue="submit" >
     <input class="button2" type="button" onclick="window.location.href = 'loginpage.php';" value="Login"/>
