@@ -61,10 +61,13 @@
             //echo $une;
           }
           elseif ($word0==$word1||$word0==$word2||$word1==$word2){
-            echo '<script>swal("Error", "Two or more similar words found in the passphrase. please enter unique words", "info");</script>';
+            echo '<script>swal("Error", "Two or more similar words found in the passphrase. please enter unique words", "error");</script>';
             //$worderror="Two or more similar words found in the passphrase. please enter unique words";
-            echo $worderror;
+            //echo $worderror;
           }
+          /*elseif ($word0||$word1||$word2==" ") {
+            echo '<script>swal("Error", "Please check the words entered for PassPhrase", "error");</script>';
+          }*/
           else{
             $name_error = "Username Available";
             $createdb = "CREATE TABLE IF NOT EXISTS `guasupp`.`users` (`username` VARCHAR(100) NOT NULL,`emailid` VARCHAR(100) NOT NULL,`passphrase` VARCHAR(100) NOT NULL,
