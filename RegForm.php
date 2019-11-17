@@ -2,6 +2,7 @@
 <head>
   <Title>Registration Page</title>
   <link rel="stylesheet" type="text/css" href="Rstyle.css">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -62,12 +63,7 @@
           }
           elseif ($word0==$word1||$word0==$word2||$word1==$word2){
             echo '<script>swal("Error", "Two or more similar words found in the passphrase. please enter unique words", "error");</script>';
-            //$worderror="Two or more similar words found in the passphrase. please enter unique words";
-            //echo $worderror;
           }
-          /*elseif ($word0||$word1||$word2==" ") {
-            echo '<script>swal("Error", "Please check the words entered for PassPhrase", "error");</script>';
-          }*/
           else{
             $name_error = "Username Available";
             $createdb = "CREATE TABLE IF NOT EXISTS `guasupp`.`users` (`username` VARCHAR(100) NOT NULL,`emailid` VARCHAR(100) NOT NULL,`passphrase` VARCHAR(100) NOT NULL,
@@ -97,17 +93,17 @@
 
               if($rowcountw1<1){
                 $emojierror1="No emoji choices for $word0. Please enter a different word";
-                echo "$emojierror1";
+                echo '<i class="em em-warning" aria-role="presentation" aria-label="WARNING SIGN"></i>'." $emojierror1";
                 echo "<br>";
               }
               if($rowcountw2<1){
                 $emojierror2="No emoji choices for $word1. Please enter a different word";
-                echo "$emojierror2";
+                echo '<i class="em em-warning" aria-role="presentation" aria-label="WARNING SIGN"></i>'." $emojierror2";
                 echo "<br>";
               }
               if($rowcountw3<1){
                 $emojierror3="No emoji choices for $word2. Please enter a different word";
-                echo "$emojierror3";
+                echo '<i class="em em-warning" aria-role="presentation" aria-label="WARNING SIGN"></i>'." $emojierror3";
                 echo "<br>";
               }
 
@@ -116,7 +112,6 @@
               }
 
             if(empty($_POST[$une])&&(empty($_POST[$worderror]))&&(empty($emojierror1))&&(empty($emojierror2))&&(empty($emojierror3))) {
-              //header('Location:regepage.php');
               $_SESSION["username"] = "$username";
               $_SESSION["word0"] = "$word0";
               $_SESSION["word1"] = "$word1";
@@ -124,14 +119,13 @@
               mysqli_query($db, $createudb);
               mysqli_query($db, $userdb);
               header("Location: emojiInput.php?");
-              //exit();
             }
           }
         }
     ?>
     <p style="font-size:15px;line-height:2;">
       Word Suggestions:<br>Airplane, Camera, Star, Sun, Moon, Book, Heart, Boy, Girl, Kiss, Pizza,
-       Bus, Computer, Doctor, Farmer, Scientist, Fire, Radio, baby,  Rabbit, Monkey, Dog...
+       Bus, Computer, Doctor, Farmer, Scientist, Fire, Radio, baby, Bird, fish, Rabbit, Monkey, Dog...
     </p>
 	    <input class="button" type="submit" vlaue="submit" >
     <input class="button2" type="button" onclick="window.location.href = 'loginpage.php';" value="Login"/>

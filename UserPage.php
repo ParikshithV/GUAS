@@ -121,4 +121,7 @@ if (isset($_SESSION['authenticate'])){?>
 
   <?php
 }
+else {
+  ?><script>window.location.href='LoginPage.php';</script><?php
+}
 ?>

@@ -49,7 +49,7 @@
         regisered. Any data stored about the messages or the sender is stored in an encrypted form and it is
         decrypted before displaying the same to the user.
       </p>
-      <button class="redb" onclick="window.location.href = 'LoginPage.php';">Message Passing Interface</button>
+      <button class="redb" onclick="window.location.href = 'UserPage.php';">Message Passing Interface</button>
     </div>
     </center>
     </body>

@@ -25,7 +25,7 @@ if (isset($_SESSION['authenticate'])) {?>
       </div>
       <input class="button" type="submit" vlaue="submit" >
       <input class="button2" type="button" onclick="window.location.href = 'ForgotPassword.php';" value="Reset PassPhrase"/>
-      <input class="button2" type="button" onclick="window.location.href = 'LoginPage.php';" value="Logout"/>
+      <input class="button2" type="button" onclick="window.location.href = 'index.php';" value="Logout"/>
       <?php
       $db = mysqli_connect("localhost", "root", "", "guasupp");
       $sql_search = "SELECT username FROM users;";
@@ -60,7 +60,12 @@ if (isset($_SESSION['authenticate'])) {?>
       if (mysqli_num_rows($res_u) > 0) {
         $sql_dlt="DELETE FROM `users` WHERE username = '$username'";
         mysqli_query($db, $sql_dlt);
-        echo '<script>swal("User removed!", "", "success");</script>';
+        ?>
+        <script>swal("User Removed!", " ", "success", {buttons: false, timer: 2000,});</script>
+        <script>setTimeout(function(){
+          window.location.href='Admin.php';
+        }, 2500);
+        </script><?php
       }
       else {
         echo '<script>swal("Error", "User not found", "warning");</script>';
