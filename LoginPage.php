@@ -89,7 +89,11 @@ else {
                   WHERE username = '$uname';";
       mysqli_query($db, $login);
       if ($lno < -1){
-        echo '<script>swal("", "Please reset Pass-Phrase to login", "warning");</script>';
+        ?><script>swal("", "Please reset Pass-Phrase to login.", "warning", {buttons: false, timer: 3000,});</script>
+        <script>setTimeout(function(){
+          window.location.href='ForgotPassword.php';
+        }, 2500);
+        </script><?php
       }
 
       $emosc1 = mysqli_query($db,"select emojichoice1 from users where username = '$username'");

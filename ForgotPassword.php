@@ -11,7 +11,7 @@
     <h1> PassPhrase Reset Page</h1>
   </header>
   <form action="ForgotPassword.php"method="post">
-  <div class="container">
+  <div class="containerr">
   <div class="un">
     <p>
         <label for="username" class="uname" data-icon="u">Your username:</label><br>
