@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['authenticate'] == session_id()) {?>
+if (isset($_SESSION['authenticate'])){?>
   <html>
   <head>
     <Title>Hello <?php echo $_SESSION['uname']; ?></title>
@@ -113,7 +113,7 @@ if ($_SESSION['authenticate'] == session_id()) {?>
       </div>
       <input class="button" type="submit" vlaue="submit" >
       <input class="button2" type="button" onclick="window.location.href = 'UserPage.php';" value="Back"/>
-      <input class="button2" type="button" onclick="window.location.href = 'LoginPage.php';" value="Logout"/>
+      <input class="button2" type="button" onclick="window.location.href = 'index.php';" value="Logout"/>
       </div>
     </form>
   </body>

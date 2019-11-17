@@ -14,11 +14,6 @@
 <?php
 session_start();
 
-if (!empty($_SESSION['authenticate'])) {
-  echo '<script> alert("This login will destroy other user sessions"); </script>';
-}
-
-unset($_SESSION['authenticate']);
 if(isset($_POST['refnum'])){
   $db = mysqli_connect("localhost", "root", "", "guasupp");
   $refin= mysqli_real_escape_string($db, $_POST['refnum']);
@@ -48,14 +43,16 @@ else {
   if ($lno < 1) {
     $lnoo = 0;
   }
-  echo "No. of login attempts left: $lnoo";?><br><?php
+  echo "No. of login attempts left: $lnoo";?><br>
+  <a href="ForgotPassword.php"><b>Pass-Phrase Reset?</b></a>
+  <?php
   $login = "UPDATE users
               SET login = '$lno'
               WHERE username = '$uname';";
   mysqli_query($db, $login);
   echo '<script>swal("Login Failed!", "Incorrect reference numbers entered.", "warning");</script>';
   if ($lno < -1) {
-    echo '<script>swal("", "Too many invalid attempts. Contact admin", "warning");</script>';
+    echo '<script>swal("", "Too many invalid attempts. Reset Pass-Phrase", "warning");</script>';
   }
   //unset($_SESSION['uname']);
 }
@@ -92,7 +89,7 @@ else {
                   WHERE username = '$uname';";
       mysqli_query($db, $login);
       if ($lno < -1){
-        echo '<script>swal("", "Please contact admin to login", "warning");</script>';
+        echo '<script>swal("", "Please reset Pass-Phrase to login", "warning");</script>';
       }
 
       $emosc1 = mysqli_query($db,"select emojichoice1 from users where username = '$username'");
